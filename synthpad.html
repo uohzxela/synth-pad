@@ -1,0 +1,89 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="synthpad.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type='text/javascript' src='recorder.js'></script>
+    <script type='text/javascript' src="synthpad.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="1310" height="325" style="display: block;"></canvas>
+  <header><h1>synthpad</h1></header>
+  <section id="sp">
+    <div id="pad1" data-sound="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/kick.wav"></div>
+    <div id="pad2" data-sound="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/snare.wav"></div>
+    <div id="pad3" data-sound="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/tin.wav"></div>
+    <div id="pad4" data-sound="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/hat.wav"></div>
+  </section>
+  <section id="cp">
+    <div class="pad1" data-pad="pad1">
+      <h2>TL Control</h2>
+<!--       <h3>top left pad</h3> -->
+      <button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+
+      <button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+      <button type="button" class="dub-button" data-toggle-text="No Dub" value=false>Dub delay</button>
+      <lable class="dub-group faded" for="frequency1">Delay Time:</lable>
+      <input class="dub-group faded" max='1' min='0' name='delayTime' step='0.05' type='range' value='0.5' data-control="d"/>
+      <button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+      <lable class="filter-group faded" for="frequency1">Frequency:</lable>
+      <input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency1">
+      <label class="filter-group faded" for="quality1">Quality:</label>
+      <input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality1">
+      <label for"volume 1">Volume</label>
+      <input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume1">
+    </div>
+    <div class="pad2" data-pad="pad2">
+      <h2>TR Control</h2>
+<!--       <h3>top right pad</h3> -->
+      <button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+      <button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+      <button type="button" class="dub-button" data-toggle-text="No Dub" value=false>Dub delay</button>
+      <lable class="dub-group faded" for="frequency1">Delay Time:</lable>
+      <input class="dub-group faded" max='1' min='0' name='delayTime' step='0.05' type='range' value='0.5' data-control="d"/>
+      <button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+      <lable class="filter-group faded" for="frequency2">Frequency:</lable>
+      <input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency2">
+      <lable class="filter-group faded" for="quality2">Quality:</lable>
+      <input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality2">
+      <label for"volume 2">Volume</label>
+      <input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume2">
+    </div>
+    <div class="pad3" data-pad="pad3">
+      <h2>LL Control</h2>
+<!--       <h3>lower left pad</h3> -->
+      <button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+      <button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+      <button type="button" class="dub-button" data-toggle-text="No Dub" value=false>Dub delay</button>
+      <lable class="dub-group faded" for="frequency1">Delay Time:</lable>
+      <input class="dub-group faded" max='1' min='0' name='delayTime' step='0.05' type='range' value='0.5' data-control="d"/>
+      <button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+      <lable class="filter-group faded" for="frequency3">Frequency:</lable>
+      <input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency3">
+      <lable class="filter-group faded" for="quality3">Quality:</lable>
+      <input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality3">
+      <label for"volume 3">Volume</label>
+      <input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume3">
+    </div>
+    <div class="pad4" data-pad="pad4">
+      <h2>LR Control</h2>
+<!--       <h3>lower right pad</h3> -->
+      <button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+      <button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+      <button type="button" class="dub-button" data-toggle-text="No Dub" value=false>Dub delay</button>
+      <lable class="dub-group faded" for="frequency1">Delay Time:</lable>
+      <input class="dub-group faded" max='1' min='0' name='delayTime' step='0.05' type='range' value='0.5' data-control="d"/>
+      <button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+      <lable class="filter-group faded" for="frequency4">Frequency:</lable>
+      <input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency4">
+      <lable class="filter-group faded" for="quality4">Quality:</lable>
+      <input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality4">
+      <label for"volume 4">Volume</label>
+      <input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume4">
+    </div>
+  </section>
+    <button id='StartRec'>Start Recording</button>
+    <button id='StopRec'>Stop Recording</button>
+<!--     <button id='ClearRec'>Clear Memory</button> -->
+    <button id='Export'>Export</button>
+</body>
+</html>

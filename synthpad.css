@@ -1,0 +1,87 @@
+html, body { margin: 0; font-family: 'Fira Mono', 'sans'; background: #f3f3f3; }
+	header { margin: 0; padding: 0 2em; background: #3a3a3a; color: rgb(173,173,173);}
+	header h1 { margin: 0;}
+
+	/* synth pad section */
+	#sp { width: 22.75em; height: 25em; margin: 0; padding: 2em; float: left; }
+	#pad1 { 
+		width: 10em; 
+		height: 10em; 
+		margin-bottom: 1em;
+		display: inline-block; 
+		background: #fca13f; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+	}
+	#pad2 { 
+		width: 10em; 
+		height: 10em; 
+		margin-bottom: 1em;
+		display: inline-block; 
+		background: #6AA17C; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+	}
+	#pad3 { 
+		width: 10em; 
+		height: 10em; 
+		margin-bottom: 1em;
+		display: inline-block; 
+		background: #61798E;
+		box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+	}
+	#pad4 { 
+		width: 10em; 
+		height: 10em; 
+		margin-bottom: 1em;
+		display: inline-block; 
+		background: #CA8595; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+	}
+	#sp div:nth-child(odd) { margin-right: 1em; }
+	#sp div:active { background: #948aaf; }
+
+	/* control section */
+	#cp { height: 25em; margin: 0; padding: 2em 2em 2em 0; float: left; }
+	#cp div { width: 10em; padding: 5px; margin-right: 5px; display: inline-block; border: solid 2px #ccc; }
+	h2, h3 { margin: 0; padding: 0; }
+	#cp h3 { position: relative; top: -10px; font-size: 16px;}
+	#cp div input[type = 'range'] { position: relative; top: 2px; }
+	.pad1 button { 
+		width: 100%; 
+		margin-bottom: 0.5em; 
+		padding: 0.25em; 
+		font-size: 1.25em; 
+		border: none; 
+		background: #fca13f; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -3px 3px 0px 0px inset;
+	}
+	.pad2 button { 
+		width: 100%; 
+		margin-bottom: 0.5em; 
+		padding: 0.25em; 
+		font-size: 1.25em; 
+		border: none; 
+		background: #6AA17C; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -3px 3px 0px 0px inset;
+	}
+	.pad3 button { 
+		width: 100%; 
+		margin-bottom: 0.5em; 
+		padding: 0.25em; 
+		font-size: 1.25em; 
+		border: none; 
+		background: #61798E; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -3px 3px 0px 0px inset;
+	}
+	.pad4 button { 
+		width: 100%; 
+		margin-bottom: 0.5em; 
+		padding: 0.25em; 
+		font-size: 1.25em; 
+		border: none; 
+		background: #CA8595; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -3px 3px 0px 0px inset;
+	}
+	
+	#cp button[value = true] { background: #248aaf; color: white; }
+
+	.faded { opacity: 0.15; }

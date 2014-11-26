@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html land=en>
+	<head>
+		<title>Very Basic Virtual Synth Pad Demonstration</title>
+		<link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700' rel='stylesheet' type='text/css'>
+		<style>
+		html, body { margin: 0; font-family: 'Fira Mono', 'sans'; background: #f3f3f3; }
+	header { margin: 0; padding: 0 2em; background: #3a3a3a; color: rgb(173,173,173);}
+	header h1 { margin: 0;}
+
+	/* synth pad section */
+	#sp { width: 22.75em; height: 25em; margin: 0; padding: 2em; float: left; }
+	#sp div { 
+		width: 10em; 
+		height: 10em; 
+		margin-bottom: 1em;
+		display: inline-block; 
+		background: #fca13f; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+	}
+	#sp div:nth-child(odd) { margin-right: 1em; }
+	#sp div:active { background: #248aaf; }
+
+	/* control section */
+	#cp { height: 25em; margin: 0; padding: 2em 2em 2em 0; float: left; }
+	#cp div { width: 10em; padding: 5px; margin-right: 5px; display: inline-block; border: solid 2px #ccc; }
+	h2, h3 { margin: 0; padding: 0; }
+	#cp h3 { position: relative; top: -10px; font-size: 16px;}
+	#cp div input[type = 'range'] { position: relative; top: 2px; }
+	#cp button { 
+		width: 100%; 
+		margin-bottom: 0.5em; 
+		padding: 0.25em; 
+		font-size: 1.25em; 
+		border: none; 
+		background: #fca13f; 
+		box-shadow: rgba(0, 0, 0, 0.0980392) -3px 3px 0px 0px inset;
+	}
+	#cp button[value = true] { background: #248aaf; color: white; }
+
+	.faded { opacity: 0.15; }
+	.p { clear: both; text-align: center; }
+	</style>
+
+	</head>
+	<body>
+		<header><h1>v.b.v.s.p.</h1></header>
+		<section id="sp">
+			<div id="pad1" data-sound="kick.wav"></div>
+			<div id="pad2" data-sound="snare.wav"></div>
+			<div id="pad3" data-sound="tin.wav"></div>
+			<div id="pad4" data-sound="hat.wav"></div>
+		</section>
+		<section id="cp">
+			<div data-pad="pad1">
+				<h2>TL Control</h2>
+				<h3>top left pad</h3>
+				<button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+				<button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+				<button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+				<lable class="filter-group faded" for="frequency1">Frequency:</lable>
+				<input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency1">
+				<lable class="filter-group faded" for="quality1">Quality:</lable>
+				<input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality1">
+				<label for"volume 1">Volume</label>
+				<input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume1">
+			</div>
+			<div data-pad="pad2">
+				<h2>TR Control</h2>
+				<h3>top right pad</h3>
+				<button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+				<button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+				<button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+				<lable class="filter-group faded" for="frequency2">Frequency:</lable>
+				<input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency2">
+				<lable class="filter-group faded" for="quality2">Quality:</lable>
+				<input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality2">
+				<label for"volume 2">Volume</label>
+				<input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume2">
+			</div>
+			<div data-pad="pad3">
+				<h2>LL Control</h2>
+				<h3>lower left pad</h3>
+				<button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+				<button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+				<button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+				<lable class="filter-group faded" for="frequency3">Frequency:</lable>
+				<input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency3">
+				<lable class="filter-group faded" for="quality3">Quality:</lable>
+				<input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality3">
+				<label for"volume 3">Volume</label>
+				<input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume3">
+			</div>
+			<div data-pad="pad4">
+				<h2>LR Control</h2>
+				<h3>lower right pad</h3>
+				<button type="button" class="loop-button" data-toggle-text="End Loop" value=false>Loop</button>
+				<button type="button" class="reverb-button" data-toggle-text="No Rvrb" value=false>Reverb</button>
+				<button type="button" class="filter-button" data-toggle-text="No Fltr" value=false>Filter</button>
+				<lable class="filter-group faded" for="frequency4">Frequency:</lable>
+				<input class="filter-group faded" type="range" min="0" max="10000" step="1" value="350" data-control="fq" name="frequency4">
+				<lable class="filter-group faded" for="quality4">Quality:</lable>
+				<input class="filter-group faded" type="range" min="0.0001" max="1000" step="0.0001" value="500" data-control="q" name="quality4">
+				<label for"volume 4">Volume</label>
+				<input type="range" min="0" max="5" step="0.1" value="1" data-control="gain" name="volume4">
+			</div>
+		</section>
+		<p class="p">Demo by Armando Roggio. <a href="html5-web-audio-api-tutorial-building-virtual-synth-pad">See article</a>.</p>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+		var context = new AudioContext(),
+		    irHall = new reverbObject('irHall.ogg');
+
+		$(function() {
+		    $('#sp div').each(function() {
+		        addAudioProperties(this);
+		    });
+
+		    $('#sp div').click(function() {
+		        this.play();
+		    });
+
+		    $('#cp input').change(function() {
+		        var v = $(this).parent().data('pad'),
+		            pad = $('#' + v)[0];
+		        switch ($(this).data('control')) {
+		            case 'gain':
+		                pad.volume.gain.value = $(this).val();
+		                break;
+		            case 'fq':
+		                pad.fqValue = $(this).val();
+		                break;
+		            case 'q':
+		                pad.qValue = $(this).val();
+		                break;
+		            default:
+		                break;
+		        } 
+		    });
+
+		    $('#cp button').click(function() {
+		        var v = $(this).parent().data('pad'),
+		            toggle = $(this).text(),
+		            pad = $('#' + v)[0];
+		        $(this).text($(this).data('toggleText')).data('toggleText', toggle);
+		        ($(this).val() === 'false') ? $(this).val('true') : $(this).val('false');
+		        switch ($(this)[0].className) {
+		            case 'loop-button':
+		                pad.stop();
+		                pad.loop = ($(this).val() == 'false') ? false : true;
+		                break;
+		            case 'reverb-button':
+		                pad.stop();
+		                pad.reverb = ($(this).val() == 'false') ? false : true;
+		                break;
+		            case 'filter-button':
+		                pad.stop();
+		                pad.filter = ($(this).val() == 'false') ? false : true;
+		                $(this).parent().children('.filter-group').toggleClass('faded');
+		                break;
+		            default:
+		                break;
+		        }
+		    });
+		});
+
+		function reverbObject (url) {
+		    this.source = url;
+		    loadAudio(this, url);
+		}
+
+		function loadAudio(object, url) {
+		    var request = new XMLHttpRequest();
+		    request.open('GET', url, true);
+		    request.responseType = 'arraybuffer';
+
+		    request.onload = function() {
+		        context.decodeAudioData(request.response, function(buffer) {
+		            object.buffer = buffer;
+		        });
+		    }
+		    request.send();
+		}
+
+		function addAudioProperties(object) {
+		    object.name = object.id;
+		    object.source = $(object).data('sound');
+		    loadAudio(object, object.source);
+		    object.volume = context.createGain();
+		    object.loop = false;
+		    object.reverb = false;
+		    object.filter = false;
+		    object.fqValue = 350;
+		    object.qValue = 500;
+		    object.play = function () {
+		        var s = context.createBufferSource();
+		        s.buffer = object.buffer;
+		        s.connect(object.volume);
+		        
+		        if (this.reverb === true) {
+		            this.convolver = context.createConvolver();
+		            this.convolver.buffer = irHall.buffer;
+		            this.volume.connect(this.convolver);
+		            this.convolver.connect(context.destination);
+		        } else if (this.convolver) {
+		            this.volume.disconnect(0);
+		            this.convolver.disconnect(0);
+		            this.volume.connect(context.destination);
+		        } else {
+		            this.volume.connect(context.destination);
+		        }
+		        
+		        if(this.filter === true) {
+		            this.biquad = context.createBiquadFilter();
+		            this.biquad.type = this.biquad.LOWPASS;
+		            this.biquad.frequency.value = this.fqValue;
+		            this.biquad.Q.value = this.qValue;
+
+		            if(this.reverb === true) {
+		                this.convolver.disconnect(0);
+		                this.convolver.connect(this.biquad);
+		                this.biquad.connect(context.destination);
+		            } else {
+		                this.volume.disconnect(0);
+		                this.volume.connect(this.biquad);
+		                this.biquad.connect(context.destination);
+		            }
+		        } else {
+		            if(this.biquad) {
+		                if(this.reverb === true) {
+		                    this.biquad.disconnect(0);
+		                    this.convolver.disconnect(0);
+		                    this.convolver.connect(context.destination);
+		                } else {
+		                    this.biquad.disconnect(0);
+		                    this.volume.disconnect(0);
+		                    this.volume.connect(context.destination);
+		                }
+		            }
+		        }
+		        s.loop = object.loop;
+		        s.start(0);
+		        object.s = s;
+		    }
+
+		    object.stop = function () {
+		        if(object.s) object.s.stop();
+		    }
+		}
+		</script>
+	</body>
+</html>
