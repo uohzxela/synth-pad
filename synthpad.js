@@ -4,7 +4,7 @@ var ctx;
 var javascriptNode = context.createScriptProcessor(2048, 1, 1);
 javascriptNode.connect(context.destination);
 var analyser = context.createAnalyser();
-var gain = context.createGainNode();
+var gain = context.createGain();
 var recorder = new Recorder(gain);
 	
 analyser.smoothingTimeConstant = 0.3;
