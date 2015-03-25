@@ -18,4 +18,4 @@ HTML5 Web Audio synthesizer and visualizer
 2. Reverb
 3. Dub step
 4. Filter (badly done)
-5. Record and export to .wav files (refresh to clear browser memory)
+5. Record and export to .wav files (refresh to clear previous recording)
