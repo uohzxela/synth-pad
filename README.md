@@ -8,6 +8,6 @@ HTML5 Web Audio synthesizer and visualizer
 # Run it
 
 1. Clone this repo
-2. Change directory to repo
+2. Change current directory to repo
 3. `python -m SimpleHTTPServer 8000`
-4. Go to localhost:8000 and double click on synth-pad.html
+4. Go to `http://localhost:8000/synthpad.html`
