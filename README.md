@@ -7,8 +7,11 @@ HTML5 Web Audio synthesizer and visualizer
 
 # Run it
 
-1. Clone this repo
-2. Change current directory to repo
+1. Checkout this repo: 
+    ```
+    git clone git@github.com:uohzxela/synth-pad.git
+    & cd synth-pad
+    ```
 3. `python -m SimpleHTTPServer 8000`
 4. Go to `http://localhost:8000/synthpad.html`
 
@@ -16,6 +19,6 @@ HTML5 Web Audio synthesizer and visualizer
 
 1. Loop
 2. Reverb
-3. Dub step
+3. Dub delay
 4. Filter (badly done)
 5. Record and export to .wav files (refresh to clear previous recording)
