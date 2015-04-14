@@ -5,6 +5,8 @@
 
 HTML5 Web Audio synthesizer and visualizer
 
+Video demo: https://www.dropbox.com/s/c5xuzhj7u0qrtg1/synthpad.mp4?dl=0
+
 # Run it
 
 1. Checkout this repo: 
